@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.BetUs" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.BetUs" parent="Base.Theme.BetUs" />
+
+    <style name="AppBottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <!--        <item name="itemBackground">@color/sustem</item>-->
+        <item name="android:background">#1A808080</item>
+        <!--        <item name="android:textColor">@color/red</item>-->
+        <item name="itemHorizontalTranslationEnabled">false</item>
+    </style>
+</resources>

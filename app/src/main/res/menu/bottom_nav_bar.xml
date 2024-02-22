@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:title="LeaderBoard"
+        android:icon="@drawable/fourth_nav"/>
+    <item
+        android:id="@+id/message"
+        android:title="Requests"
+        android:icon="@drawable/fourth_nav"/>
+    <item
+        android:id="@+id/settings"
+        android:title="Apply"
+        android:icon="@drawable/fourth_nav"/>
+    <item
+        android:id="@+id/about"
+        android:title="About"
+        android:icon="@drawable/fourth_nav"/>
+</menu>
