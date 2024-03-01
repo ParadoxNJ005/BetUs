@@ -6,20 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Activity.SplashActivity">
 
-    <TextView
-        android:layout_width="386dp"
-        android:layout_height="144dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:gravity="center"
-        android:text="Kasukabe Defence Group Presents"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.522" />
 
     <TextView
         android:id="@+id/textView"
@@ -27,7 +13,7 @@
         android:layout_height="200dp"
         android:fontFamily="casual"
         android:gravity="center"
-        android:text="PROXTER"
+        android:text="Bet Us"
         android:textColor="@color/blue"
         android:textSize="80dp"
         android:textStyle="bold"
@@ -36,7 +22,7 @@
         app:layout_constraintHorizontal_bias="0.36"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.896" />
+        app:layout_constraintVertical_bias="0.453" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

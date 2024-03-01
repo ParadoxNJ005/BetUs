@@ -2,13 +2,16 @@ package com.example.betus.Activity
 
 import android.animation.ObjectAnimator
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.WindowManager
 import android.view.animation.AccelerateDecelerateInterpolator
+import android.widget.ImageView
 import android.widget.Toast
+import com.example.betus.R
 import com.example.betus.databinding.ActivitySplashBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -27,37 +30,46 @@ class SplashActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
+        requestPermissions(
+            arrayOf(
+                android.Manifest.permission.CAMERA,
+                android.Manifest.permission.CALL_PHONE,
+            ),1
+        )
+
         binding.textView.alpha = 0f
 
-        val fadeInAnimator = ObjectAnimator.ofFloat(binding.textView, "alpha", 0f, 1f)
-        fadeInAnimator.duration = 2500 // 2.5 seconds
-        fadeInAnimator.interpolator = AccelerateDecelerateInterpolator()
-        fadeInAnimator.start()
-
-        Handler(Looper.getMainLooper()).postDelayed({
-            checkUserAuthentication()
-        }, 3000) // 3 seconds
     }
 
-    private fun checkUserAuthentication() {
-        val currentUser = FirebaseAuth.getInstance().currentUser
-        if (currentUser == null) {
-            autoLoginFailed()
-        } else {
-            autoLoginSuccess(currentUser.uid)
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+
+        if(grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED){
+
+            binding.textView.animate().setDuration(3000).alpha(1f).withEndAction{
+
+                if(FirebaseAuth.getInstance().currentUser != null){
+                    Toast.makeText(this, "aa", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this,MainActivity::class.java))
+                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
+                    finish()
+                }else{
+                    Toast.makeText(this, "bb", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this,MainActivity::class.java))
+                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
+                    finish()
+                }
+            }
+        }else{
+            Toast.makeText(this,"Please grant permission to continue",Toast.LENGTH_SHORT).show()
+            finish()
         }
-    }
 
-    private fun autoLoginSuccess(userId: String) {
-        Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show()
-        startActivity(Intent(this, MainActivity::class.java))
-        finish()
-    }
-
-    private fun autoLoginFailed() {
-        Toast.makeText(this, "Sign in Please", Toast.LENGTH_SHORT).show()
-        startActivity(Intent(this, Signin ::class.java))
-        finish()
     }
 
     override fun onBackPressed() {

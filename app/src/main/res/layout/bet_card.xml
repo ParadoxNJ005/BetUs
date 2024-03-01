@@ -6,7 +6,7 @@
     android:layout_marginVertical="10dp"
     app:cardCornerRadius="15dp"
     android:outlineSpotShadowColor="@color/black"
-    android:elevation="4dp"
+    android:elevation="10dp"
 
     android:layout_height="wrap_content">
 
@@ -36,7 +36,6 @@
             android:hint="match name"
             android:paddingHorizontal="5dp"
             android:textAllCaps="true"
-            android:textColor="#E9E9E9"
             android:textColorHint="@color/black"
             android:textSize="16dp" />
 
@@ -49,7 +48,6 @@
             android:gravity="center_vertical|end"
             android:hint="date"
             android:paddingHorizontal="5dp"
-            android:textColor="#E9E9E9"
             android:textColorHint="@color/black"
             android:textSize="16dp" />
     </LinearLayout>

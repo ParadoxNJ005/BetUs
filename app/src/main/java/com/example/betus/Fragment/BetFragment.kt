@@ -8,16 +8,16 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.betus.Adapter.SportAdapter
-import com.example.betus.DataClass.Users
+import com.example.betus.DataClass.Sports
 import com.example.betus.databinding.FragmentBetBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class betFragment : Fragment() {
+class BetFragment : Fragment() {
 
     private lateinit var binding: FragmentBetBinding
     private lateinit var sport_adapter: SportAdapter
-    private lateinit var usrs: MutableList<Users>
+    private lateinit var usrs: MutableList<Sports>
     private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
@@ -31,8 +31,10 @@ class betFragment : Fragment() {
         usrs = mutableListOf()
         sport_adapter = SportAdapter(requireContext(),usrs)
 
-        binding.sportRv.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,true)
-        binding.sportRv.adapter = sport_adapter
+        binding.matchRv.layoutManager = LinearLayoutManager(requireContext())
+        binding.matchRv.adapter = sport_adapter
+
+
 
         fetchFromFirestore()
 
@@ -42,14 +44,21 @@ class betFragment : Fragment() {
     private fun fetchFromFirestore() {
 
         usrs.clear()
-        FirebaseFirestore.getInstance().collection("sports").get().addOnSuccessListener {documents->
+        FirebaseFirestore.getInstance().collection("Sports").get().addOnSuccessListener {documents->
 
             for(document in documents){
-                val docId = document.id
-                val name  = document.getString("name")?:""
-                val image  = document.getString("image")?:""
 
-                usrs.add(Users(name,image))
+                val docId = document.id
+                val clgName1  = document.getString("clgName1")?:""
+                val clgName2  = document.getString("clgName2")?:""
+                val clgImg1  = document.getString("clgImg1")?:""
+                val clgImg2  = document.getString("clgImg2")?:""
+                val date = document.getString("date")?:""
+                val match = document.getString("match")?:""
+                val time = document.getString("time")?:""
+
+
+                usrs.add(Sports(docId,clgImg1,clgImg2,clgName1,clgName2,date,match,time))
             }
             sport_adapter.notifyDataSetChanged()
         }.addOnFailureListener{
@@ -60,6 +69,28 @@ class betFragment : Fragment() {
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//val id:String,
+//val clgImg1: String,
+//val clgImg2: String,
+//val clgName1: String,
+//val clgName2: String,
+//val date: String,
+//val match:String,
+//val time:String
 //for(document in documents){
 //    val docId = document.id
 //    val name1  = document.getString("name1")?:""

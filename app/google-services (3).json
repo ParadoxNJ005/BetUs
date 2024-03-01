@@ -1,0 +1,48 @@
+
+{
+  "project_info": {
+    "project_number": "1020986594972",
+    "project_id": "betus-2fea9",
+    "storage_bucket": "betus-2fea9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020986594972:android:161385d3de0aa1bf9e7f59",
+        "android_client_info": {
+          "package_name": "com.example.betus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1020986594972-90380diddjt2kv7gtu63uoqu2v5asmio.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.betus",
+            "certificate_hash": "0dbd4fb01022dac311ca9c3df11c890a127e75d2"
+          }
+        },
+        {
+          "client_id": "1020986594972-su0fa1o2lro4tmscfqha2n0ud7n6bmof.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIE-QXHg60YWUtGtslmmBeX_EiqScG6Vw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1020986594972-su0fa1o2lro4tmscfqha2n0ud7n6bmof.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
